@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>godel</name>
+  <version>0.0.0</version>
+  <description>The godel metapackage</description>
+
+  <maintainer email="ros-industrial@todo.todo">ros-industrial</maintainer>
+
+  <license>Apache2</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>godel_plugins</exec_depend>
+  <exec_depend>godel_process_planning</exec_depend>
+  <exec_depend>godel_process_path_generation</exec_depend>
+  <exec_depend>godel_msgs</exec_depend>
+  <exec_depend>godel_surface_detection</exec_depend>
+  <exec_depend>godel_polygon_offset</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

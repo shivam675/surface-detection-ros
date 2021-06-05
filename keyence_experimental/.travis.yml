@@ -1,0 +1,22 @@
+sudo: required 
+dist: trusty
+language: generic 
+compiler:
+  - gcc
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+env:
+  global:
+    - ROS_DISTRO=kinetic
+    - NOT_TEST_INSTALL=true
+    - UPSTREAM_WORKSPACE=file
+    - ROSINSTALL_FILENAME=keyence_experimental.rosinstall
+  matrix:
+    - ROS_REPOSITORY_PATH=http://packages.ros.org/ros/ubuntu
+    - ROS_REPOSITORY_PATH=http://packages.ros.org/ros-shadow-fixed/ubuntu
+install:
+  - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
+script: 
+  - source .ci_config/travis.sh

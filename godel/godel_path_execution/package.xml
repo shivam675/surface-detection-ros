@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>godel_path_execution</name>
+  <version>0.1.0</version>
+  <description>
+    This package manages the execution of joint trajectories
+    on the physical platform. Many components in Godel may
+    issue movement commands, and this package is envisioned
+    as a gate keeper of this motion. 
+  </description>
+
+  <maintainer email="jmeyer@swri.org">Jonathan Meyer</maintainer>
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>actionlib</depend>
+  <depend>godel_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>industrial_robot_simulator_service</depend>
+
+</package>

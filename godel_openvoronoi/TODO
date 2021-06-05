@@ -1,0 +1,115 @@
+Core algorithm
+- support "spikes", i.e. three or more line-segments connecting to the same vertex
+  (this is illustrated in the failing test cpptest_spike)
+- add suport for arcs
+- better logging (logging levels, where we log, etc)
+- better error handling (exceptions?)
+- refactor (?) to reduce voronoidiagram.cpp (almost 2000 lines)
+- Edge-parametrizations are now stored twice, for Edge e and for g[e].twin. 
+  We could save memory by only storing them once.
+- Edge and Vertex types are now "C-style" polymorphic. Could this be 
+  improved with inheritance-based polymorphism.  This may be problematic 
+  if BGL wants Edge/Vertex properties to be default-constructible and assignable etc.
+- separate VoronoiDiagramChecker code into topology tests and geometry tests.
+- write a "Reducer" class for investigating problematic cases. When we find a
+  case which makes the code crash, the Reducer takes the (potentially large)
+  test case and removes sites one-by-one until we have a minimal test-case
+  that still causes failure. This would greatly help pinpoint problems in Solvers.
+- A segfault will result if the user tries to insert a line-segment that intersects with an already inserted
+  line-segment. Try to fail more graciously, or warn the user. Probably same issue with identical point-sites.
+- calling vd.check() after a "debug-mode" insert_line_site(id1,id2, step) (where e.g. step=5) causes a segfault
+  make this fail more gracefully.
+- Try an alternative (faster?) graph implementation for halfedge_diagram, such as http://lemon.cs.elte.hu/trac/lemon
+
+Solvers
+- geometric-filtering. try solver<double>, evaulate quality of solution, 
+  if it's good take it, if it's bad, call solver<qd_real> (which is a lot slower!)
+LLLSolver
+- alternative geometry for parallel line-segment case. See Patel's thesis, page 32.
+  -- l1 and l2 are two nearly parallel lines, some distance apart
+  -- draw a normal n1 to l1 from a point l1(u1) on the line.
+  -- draw another normal n2 to l2, that passes through l1(u1)
+  -- points on the bisector of l1/l2 are now given by
+  -- p1s + u1 p1t + t p1n     (p1s is the start-point of l1, p1t is a tangent-vector, p1n is a normal vector)
+  -- u1 is in [0,1]
+  -- when we have the lenghts n1 and n2 the t-value can be calculated as a function of u1
+  -- if the length of a normal from u1 is a, then t is
+  -- t = a * (n2 / (n1+n2) )
+  -- this gives the bisector point (xb, yb) and the offset distance t as a function of u1 along l1
+  -- insert this into the equation of the third site to find a solution u1
+- write a better DesperateSolver.
+  -- "simplex" algorithm?
+  -- PointSites have two parameters: diangle [0,4], offset-distance
+  -- LineSites have two parameters: u [0,1], offset-distance, (k-direction ?)
+  
+Offset
+- figure out how to nest offset-loops to generate a machining-graph
+-- the FaceOffset (in offset2.hpp) class is an attempt in this direction
+   An offset-loop consists of a sequence of offsets coming from a face.
+   If we store the sequence of faces it may be possible to nest offset-loops based on this.
+   OR it may be necessary to compute and store the VD vertices that a loop encloses, and nest loops based on this.
+   Another approach to nesting is a point-in-polygon test - but this test is based on geometry, the above approach would
+   be based on topology, and thus be more robust.
+- linking of offset loops for an offsetting-toolpath
+- provide an alternative zigzag-pocketing toolpath (see optimization papers by Held/Arkin)
+- Look at HSM-literature and try to implement one or many HSM-strategies.
+  See Held's slides www.cosy.sbg.ac.at/~held/teaching/seminar/seminar_2010-11/hsm.pdf
+- There is a bug in Offset which causes erratic behaviour if the offset-distance is chosen
+  so that it exactly matches the offset-distance of a LINELINE or PARA_LINELINE edge (these edges 
+  cannot sensibly be parametrized with the t-value). The correct behavior is probably not to output an 
+  offset loop at all for this t-value.
+
+Medial-Axis
+- is the current medial-axis-walk a sound machining strategy? can it be improved.
+- optimize the order of toolpath so that "pen_up, rapid_traverse, pen_down" jumps are minimized
+- better selection of start-edge when the ma is o-shaped (select start-point with minimum clearance-disk)
+
+Medial-Axis pocket
+- better G-code output
+- micro-lift and clearance-height lifts for rapids
+- end-of-branch MICs are now left unmachined if they result in a cut-width less than max-cut-width.
+- exterior ma-pocketing
+
+Input/Output
+- Write a class that makes it simpler to insert a polygon (with islands), and/or many polygons
+- DXF output for vd and offsets (?, we have SVG now)
+- SVG, DXF input
+
+Tests
+- Write more tests!
+- Test for memory-leaks with valgrind
+- Benchmark against libarea/kbool and libarea/Clipper (are there other FOSS offsetting codes?)
+- Compare against other VD codes (CGAL, boost-sweepline, others?)
+- Write software that generates test-cases (ttt is a good example)
+
+-- GIS-data
+-- notes on random polygons:
+-- http://www.geometrylab.de/applet-29-en
+-- http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Generator_ref/Function_random_polygon_2.html
+-- http://www.cs.uiuc.edu/~jeffe/open/randompoly.html
+
+Documentation
+- can we put Asymptote/SVG drawings in the doxygen-generated html?
+- set up github homepage with gallery of output, doxygen documentation, download counters, etc.
+
+Packaging/Building etc 
+- the libboost-python dependency now has to be specified with many alternative version numbers. why?
+- build(and install on github?) doxygen html documentation
+- Windows package/installer with cmake/NSIS?
+- automate source-package building from github and periodic upload to launchpad (?)
+- src/test/data now has 3Mb of data-files for tests. These could/should(?) 
+  be in a separate debian package "openvoronoi-test-data" so that the size of 
+  the "openvoronoi" package is as small as possible (for non developers who do not need to run tests)
+
+DONE:
+- 2012-03    medial-Axis pocket: deal with loops in the MA (initial simple algorithm)
+- 2012-04-02 fix medial-axis-walk case where we don't find a start-edge if the medial axis is e.g. O-shaped
+- 2012-03    build: have separate targets for pure c++ library and python module.
+- 2012-03    we now have a set of c++ tests in addition to the python tests
+- 2012       SVG output for vd and offsets with 
+- 2012-03-16 Code-coverage for tests ( "make coverage-report" )
+- 2012-03-12 doxygen documentation now works.
+- 2012-02-10 hilbert curve demo-script
+- 2012-02-01 chain_5_collinear2.py exposes a case where a desperate solution is returned, because we fail to detect this
+  as a case for the sep_solver.
+- 2012-01-25 new SEPSolver when we have a line-segment site and its endpoint

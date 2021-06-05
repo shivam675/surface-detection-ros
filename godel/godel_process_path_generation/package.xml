@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>godel_process_path_generation</name>
+  <version>0.0.0</version>
+  <description>
+  The godel_process_path_generation package creates the high-level process path for surface blending.
+  </description>
+
+  <maintainer email="dpsolomon@gmail.com">Daniel Solomon</maintainer>
+  <author email="dpsolomon@gmail.com">Daniel Solomon</author>
+  <license>Apache2</license>
+  <url type="website">https://github.com/ros-industrial-consortium/godel</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <depend>roscpp</depend>
+  <depend>godel_msgs</depend>
+  <depend>tf</depend>
+  <depend>geometry_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>pcl_ros</depend>
+  <depend>eigen_conversions</depend>
+  <depend>moveit_core</depend>
+  <depend>moveit_ros_planning_interface</depend>
+
+  <build_depend>trajectory_msgs</build_depend>
+  <build_depend>cmake_modules</build_depend>
+
+</package>

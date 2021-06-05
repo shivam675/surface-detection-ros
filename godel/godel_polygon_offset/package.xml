@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>godel_polygon_offset</name>
+  <version>0.0.0</version>
+  <description>The godel_polygon_offset package implements a method to create offset polygons from  an input set of polygon boundaries. This package utilizes the openvoronoi package created by Anders Wallin https://github.com/aewallin/openvoronoi/ </description>
+
+  <maintainer email="dpsolomon@gmail.com">Dan Solomon</maintainer>
+  <license>GPLv3</license>
+  <url type="website">https://github.com/ros-industrial/godel/godel_polygon_offset</url>
+  <author email="dpsolomon@gmail.com">Dan Solomon</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>godel_process_path_generation</depend>
+  <depend>godel_openvoronoi</depend>
+  <depend>path_planning_plugins</depend>
+
+  <build_depend>message_generation</build_depend>
+  <build_depend>cmake_modules</build_depend>
+
+  <exec_depend>message_runtime</exec_depend>
+
+</package>

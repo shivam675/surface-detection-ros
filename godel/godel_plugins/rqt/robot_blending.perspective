@@ -1,0 +1,76 @@
+{
+  "keys": {}, 
+  "groups": {
+    "pluginmanager": {
+      "keys": {
+        "running-plugins": {
+          "type": "repr", 
+          "repr": "{u'rqt_rviz/RViz': [1], u'godel_plugins/RobotBlendingPlugin': [1]}"
+        }
+      }, 
+      "groups": {
+        "plugin__rqt_rviz__RViz__1": {
+          "keys": {}, 
+          "groups": {
+            "dock_widget__": {
+              "keys": {
+                "dockable": {
+                  "type": "repr", 
+                  "repr": "True"
+                }, 
+                "parent": {
+                  "type": "repr", 
+                  "repr": "None"
+                }
+              }, 
+              "groups": {}
+            }
+          }
+        }, 
+        "plugin__godel_plugins__RobotBlendingPlugin__1": {
+          "keys": {}, 
+          "groups": {
+            "dock_widget__RobotBlendingWidget": {
+              "keys": {
+                "dockable": {
+                  "type": "repr", 
+                  "repr": "True"
+                }, 
+                "parent": {
+                  "type": "repr", 
+                  "repr": "None"
+                }
+              }, 
+              "groups": {}
+            }
+          }
+        }
+      }
+    }, 
+    "mainwindow": {
+      "keys": {
+        "geometry": {
+          "type": "repr(QByteArray.hex)", 
+          "repr(QByteArray.hex)": "QtCore.QByteArray('01d9d0cb00010000000000da00000064000004de0000027f000000e200000080000004d600000277000000010000')", 
+          "pretty-print": "       d           w   "
+        }, 
+        "state": {
+          "type": "repr(QByteArray.hex)", 
+          "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff00000000fd0000000100000003000003f5000001c9fc0100000002fb000000740067006f00640065006c005f0070006c007500670069006e0073005f005f0052006f0062006f00740042006c0065006e00640069006e00670050006c007500670069006e005f005f0031005f005f0052006f0062006f00740042006c0065006e00640069006e00670057006900640067006500740100000000000000f9000000f900fffffffb00000026007200710074005f007200760069007a005f005f005200560069007a005f005f0031005f005f01000000ff000002f6000002f600ffffff000003f50000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')", 
+          "pretty-print": "                 tgodel_plugins__RobotBlendingPlugin__1__RobotBlendingWidget          &rqt_rviz__RViz__1__                            6MinimizedDockWidgetsToolbar        "
+        }
+      }, 
+      "groups": {
+        "toolbar_areas": {
+          "keys": {
+            "MinimizedDockWidgetsToolbar": {
+              "type": "repr", 
+              "repr": "8"
+            }
+          }, 
+          "groups": {}
+        }
+      }
+    }
+  }
+}

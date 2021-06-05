@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>godel_openvoronoi</name>
+  <version>0.0.0</version>
+  <description>ROS-Industrial Godel project-specific version of Anders Wallin's OpenVoronoi.</description>
+  <author>Anders Wallin</author>
+  <maintainer email="sedwards@swri.org">Shaun Edwards (Southwest Research Institute)</maintainer>
+  <license>GPLv3</license>
+
+  <url type="website">http://www.anderswallin.net/cam/</url>
+  <url type="website">http://wiki.ros.org/godel_openvoronoi</url>
+  <url type="bugtracker">https://github.com/ros-industrial-consortium/godel/issues</url>
+  <url type="repository">https://github.com/ros-industrial-consortium/godel</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>libqd-dev</build_depend>
+  <build_depend>boost</build_depend>
+</package>

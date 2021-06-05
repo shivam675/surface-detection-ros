@@ -1,0 +1,13 @@
+@@ -330,6 +330,12 @@
+         return py_offsets;
+     }
+     
++    /// Return reference to machining graph
++    const MachiningGraph& getMachiningGraph() const {
++      return g;
++    }
++
++    
+ protected:
+     /// set of Loops, sorted by decreasing offset-distance
+     std::multiset<OffsetLoop, OffsetLoopCompare> distance_sorted_loops; 
