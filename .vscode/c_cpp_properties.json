@@ -1,0 +1,49 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/melodic/surface_workspace/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_robots/abb/abb_file_suite/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_robots/abb/godel_irb1200/abb_irb1200_5_90_ikfast_manipulator_plugin/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_robots/abb/godel_irb2400/abb_irb2400_descartes/include/**",
+        "/home/melodic/surface_workspace/src/descartes/descartes_core/include/**",
+        "/home/melodic/surface_workspace/src/descartes/descartes_moveit/include/**",
+        "/home/melodic/surface_workspace/src/descartes/descartes_planner/include/**",
+        "/home/melodic/surface_workspace/src/descartes/descartes_trajectory/include/**",
+        "/home/melodic/surface_workspace/src/descartes/descartes_utilities/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_param_helpers/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_path_execution/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_plugins/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_polygon_offset/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_process_execution/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_process_path_generation/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_process_planning/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_scan_analysis/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_simple_gui/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_surface_detection/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_utils/include/**",
+        "/home/melodic/surface_workspace/src/industrial_core/industrial_robot_client/include/**",
+        "/home/melodic/surface_workspace/src/industrial_core/industrial_trajectory_filters/include/**",
+        "/home/melodic/surface_workspace/src/industrial_core/industrial_utils/include/**",
+        "/home/melodic/surface_workspace/src/godel/godel_robots/abb/godel_irb2400/irb2400_ikfast_manipulator_plugin/include/**",
+        "/home/melodic/surface_workspace/src/godel/meshing_plugins/include/**",
+        "/home/melodic/surface_workspace/src/godel/meshing_plugins_base/include/**",
+        "/home/melodic/surface_workspace/src/godel/path_planning_plugins/include/**",
+        "/home/melodic/surface_workspace/src/godel/path_planning_plugins_base/include/**",
+        "/home/melodic/main-workspace/src/octobotics-arm/robosense_simulator/robosense_gazebo_plugins/include/**",
+        "/home/melodic/surface_workspace/src/industrial_core/simple_message/include/**",
+        "/home/melodic/surface_workspace/src/swri_profiler/swri_profiler/include/**",
+        "/home/melodic/surface_workspace/src/swri_profiler/swri_profiler_tools/include/**",
+        "/home/melodic/main-workspace/src/octobotics-arm/plugins/velodyne_simulator/velodyne_gazebo_plugins/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
